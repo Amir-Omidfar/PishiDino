@@ -10,12 +10,12 @@ import SwiftUI
 struct MemoryDetailView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showingEditView = false
-    let memory: Memory
+    var memory: MemoryEntity
     @ObservedObject var viewModel: MemoryViewModel
 
     var body: some View {
         ScrollView {
-            if let uiImage = loadImage(named: memory.imageName) {
+            if let imageName = memory.imageName, let uiImage = loadImage(named: imageName) {
                 Image(uiImage: uiImage)
                     .resizable()
                     .scaledToFit()
@@ -27,16 +27,17 @@ struct MemoryDetailView: View {
                     .foregroundColor(.gray)
             }
 
-            Text(memory.title)
+            Text(memory.title ?? "Untitled")
                 .font(.title)
                 .bold()
                 .padding(.top)
 
-            Text(formattedDate(memory.date))
+            Text(memory.date.map(formattedDate) ?? "No Date")
                 .font(.subheadline)
                 .foregroundColor(.gray)
 
-            Text(memory.description)
+
+            Text(memory.descriptionText ?? "No Description")
                 .padding()
         }
         .navigationTitle("Memory")

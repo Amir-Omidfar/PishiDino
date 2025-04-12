@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7C6901912DAA1065007CCFCC /* MemoryEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6901902DAA1065007CCFCC /* MemoryEntity+CoreDataProperties.swift */; };
+		7C6901922DAA1065007CCFCC /* MemoryEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C69018F2DAA1065007CCFCC /* MemoryEntity+CoreDataClass.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXBuildRule section */
 		323BFB072DA8FE500029B8FC /* PBXBuildRule */ = {
 			isa = PBXBuildRule;
@@ -41,6 +46,8 @@
 		3205ADE32DA8CC85007A79B3 /* PishiDino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PishiDino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3205ADF02DA8CC87007A79B3 /* PishiDinoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PishiDinoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3205ADFA2DA8CC87007A79B3 /* PishiDinoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PishiDinoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C69018F2DAA1065007CCFCC /* MemoryEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MemoryEntity+CoreDataClass.swift"; path = "PishiDino/MemoryEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7C6901902DAA1065007CCFCC /* MemoryEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MemoryEntity+CoreDataProperties.swift"; path = "PishiDino/MemoryEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -102,6 +109,8 @@
 		3205ADDA2DA8CC85007A79B3 = {
 			isa = PBXGroup;
 			children = (
+				7C69018F2DAA1065007CCFCC /* MemoryEntity+CoreDataClass.swift */,
+				7C6901902DAA1065007CCFCC /* MemoryEntity+CoreDataProperties.swift */,
 				3205ADE52DA8CC85007A79B3 /* PishiDino */,
 				3205ADF32DA8CC87007A79B3 /* PishiDinoTests */,
 				3205ADFD2DA8CC87007A79B3 /* PishiDinoUITests */,
@@ -264,6 +273,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C6901912DAA1065007CCFCC /* MemoryEntity+CoreDataProperties.swift in Sources */,
+				7C6901922DAA1065007CCFCC /* MemoryEntity+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +443,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,6 +473,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

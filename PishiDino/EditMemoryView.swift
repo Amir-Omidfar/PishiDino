@@ -11,26 +11,39 @@ struct EditMemoryView: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: MemoryViewModel
 
-    @State var memory: Memory
+    @State var memory: MemoryEntity
 
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Title")) {
-                    TextField("Memory Title", text: $memory.title)
+                    TextField("Memory Title", text: Binding(
+                        get: { memory.title ?? "" },
+                        set: { memory.title = $0 }
+                    ))
                 }
 
                 Section(header: Text("Date")) {
-                    DatePicker("Date", selection: $memory.date, displayedComponents: .date)
+                    DatePicker("Date", selection: Binding(
+                        get: { memory.date ?? Date() },
+                        set: { memory.date = $0 }
+                    ), displayedComponents: .date)
                 }
 
                 Section(header: Text("Description")) {
-                    TextEditor(text: $memory.description)
-                        .frame(height: 100)
+                    TextEditor(text: Binding(
+                        get: { memory.descriptionText ?? "" },
+                        set: { memory.descriptionText = $0 }
+                    ))
+                    .frame(height: 100)
                 }
 
                 Section(header: Text("Image Name (from Assets)")) {
-                    TextField("e.g. paris_trip", text: $memory.imageName)
+                    TextEditor(text: Binding(
+                        get: {memory.imageName ?? ""},
+                        set: {memory.imageName = $0}
+                    ))
+                    .frame(height: 100)
                 }
             }
             .navigationTitle("Edit Memory")
