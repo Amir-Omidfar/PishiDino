@@ -12,6 +12,16 @@ import CoreData
 struct PishiDinoApp: App {
     let persistenceController = PersistenceController.shared
 
+    init() {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+                if let error = error {
+                    print("Notification permission error: \(error.localizedDescription)")
+                } else {
+                    print("Notifications permission granted: \(granted)")
+                }
+            }
+        }
+    
     var body: some Scene {
         WindowGroup {
             ContentView(context: persistenceController.container.viewContext)

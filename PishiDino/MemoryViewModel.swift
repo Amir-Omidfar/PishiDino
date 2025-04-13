@@ -12,6 +12,7 @@ class MemoryViewModel: ObservableObject {
         fetchMemories()
     }
 
+    
     func fetchMemories() {
         let request: NSFetchRequest<MemoryEntity> = MemoryEntity.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \MemoryEntity.date, ascending: false)]
