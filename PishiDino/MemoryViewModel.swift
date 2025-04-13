@@ -12,6 +12,7 @@ class MemoryViewModel: ObservableObject {
         fetchMemories()
     }
 
+    
     func fetchMemories() {
         let request: NSFetchRequest<MemoryEntity> = MemoryEntity.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \MemoryEntity.date, ascending: false)]
@@ -44,11 +45,26 @@ class MemoryViewModel: ObservableObject {
     func deleteMemory(at offsets: IndexSet) {
         for index in offsets {
             let memory = memories[index]
+            if let imageName = memory.imageName{
+                deleteFile(named: imageName)
+            }
+            
+            if let audioFileName = memory.audioFileName{
+                deleteFile(named: audioFileName)
+            }
+            
             context.delete(memory)
         }
 
         saveContext()
         fetchMemories()
+    }
+    
+    private func deleteFile(named fileName: String){
+        let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(fileName)
+        if FileManager.default.fileExists(atPath: url.path) {
+            try? FileManager.default.removeItem(at: url)
+        }
     }
 
     private func saveContext() {

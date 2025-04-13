@@ -40,6 +40,8 @@ struct ContentView: View {
             .sheet(isPresented: $showingAddMemory) {
                 AddMemoryView(viewModel: viewModel)
             }
+        }.onAppear {
+            NotificationManager.shared.scheduleDailyMemoryNotification(memories: viewModel.memories)
         }
     }
 
